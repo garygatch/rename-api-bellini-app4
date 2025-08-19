@@ -1,0 +1,455 @@
+{
+  "name": "home",
+  "type": "page",
+  "url": "/home",
+  "params": {},
+  "variables": [
+    {
+      "name": "swaggerApi",
+      "type": "open-api",
+      "id": "open-api"
+    },
+    {
+      "name": "graphqlRenamed",
+      "type": "graphql-api",
+      "id": "graphql-api"
+    },
+    {
+      "name": "restApi",
+      "type": "open-api",
+      "id": "open-api"
+    },
+    {
+      "name": "swagger",
+      "description": "",
+      "type": "method",
+      "body": "$ctrl.swaggerApi.findPetsByStatus({\n    status: \"available\"\n}).then(result => {\n    $ctrl.pets = result.data\n})",
+      "invokeOnLoad": true,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": [],
+      "watch": []
+    },
+    {
+      "name": "graphFnc",
+      "description": "",
+      "type": "method",
+      "body": "$ctrl.graphqlRenamed.query.weather({\ncity: \"New York\" },\n    {\n        id: true,\n        cityName: true,\n        currentWeather: {\n            description: true,\n            humidity: true,\n            pressure: true,\n            status: true,\n            temp: true,\n            tempHigh: true,\n            tempLow: true,\n            windSpeed: true,\n        },\n    })\n    .then((result) => {\n        $ctrl.results = JSON.stringify(result, null, 2);\n    })",
+      "invokeOnLoad": true,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": [],
+      "watch": []
+    },
+    {
+      "name": "rest",
+      "description": "",
+      "type": "method",
+      "body": "$ctrl.restApi.getObjects().then(result => {\n    $ctrl.obj = result.data\n})",
+      "invokeOnLoad": true,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": [],
+      "watch": []
+    },
+    {
+      "name": "pets",
+      "description": "",
+      "type": "property",
+      "value": ""
+    },
+    {
+      "name": "obj",
+      "description": "",
+      "type": "property",
+      "value": ""
+    },
+    {
+      "name": "results",
+      "description": "",
+      "type": "property",
+      "value": ""
+    }
+  ],
+  "children": [
+    {
+      "name": "div",
+      "nodeName": "div",
+      "elementId": "",
+      "attributes": [
+        {
+          "property": "data-id",
+          "value": "Hktdc-"
+        }
+      ],
+      "classList": [],
+      "conditionalClasses": [],
+      "conditionalStyles": [],
+      "contentType": "text",
+      "displayExpression": "",
+      "events": {},
+      "iterate": {
+        "array": "",
+        "variable": "",
+        "trackByIndex": false
+      },
+      "styles": [
+        {
+          "enabled": true,
+          "property": "height",
+          "value": "100% !important"
+        },
+        {
+          "enabled": true,
+          "property": "width",
+          "value": "100% !important"
+        }
+      ],
+      "layout": {
+        "container": {
+          "type": "box",
+          "orientation": "row",
+          "crossAxisAlignment": "stretch",
+          "items": []
+        }
+      },
+      "children": [
+        {
+          "name": "div",
+          "nodeName": "div",
+          "elementId": "",
+          "attributes": [
+            {
+              "property": "data-id",
+              "value": "EYtK5p"
+            }
+          ],
+          "classList": [],
+          "conditionalClasses": [],
+          "conditionalStyles": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": "",
+            "trackByIndex": false
+          },
+          "styles": [],
+          "layout": {
+            "cell": {
+              "type": "box-item",
+              "growFactor": 1,
+              "shrinkFactor": 1,
+              "mainSize": "100%"
+            }
+          },
+          "children": [
+            {
+              "name": "h1",
+              "nodeName": "h1",
+              "elementId": "",
+              "attributes": [
+                {
+                  "property": "data-id",
+                  "value": "eQrC6W"
+                }
+              ],
+              "classList": [],
+              "conditionalClasses": [],
+              "conditionalStyles": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": "",
+                "trackByIndex": false
+              },
+              "styles": [
+                {
+                  "property": "text-align",
+                  "value": "center",
+                  "enabled": true
+                }
+              ],
+              "children": [
+                {
+                  "name": "text",
+                  "nodeName": "text",
+                  "textContent": "Swagger API",
+                  "evaluate": false
+                }
+              ],
+              "comments": ""
+            },
+            {
+              "name": "Table",
+              "nodeName": "bln-table",
+              "elementId": "",
+              "attributes": [
+                {
+                  "property": "core",
+                  "value": ""
+                },
+                {
+                  "property": "data-id",
+                  "value": "vECtwk"
+                }
+              ],
+              "classList": [],
+              "conditionalClasses": [],
+              "conditionalStyles": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": "",
+                "trackByIndex": false
+              },
+              "styles": [],
+              "children": [],
+              "comments": "",
+              "type": "core-component",
+              "expressions": [
+                {
+                  "expression": "$ctrl.pets",
+                  "to": "data"
+                },
+                {
+                  "expression": "[{\n        name: \"Name\",\n        hide: false,\n        valueKey: 'name',\n        textAlign: \"left\",\n        enableSorting: true,\n        sortBy: \"none\",\n        enableFiltering: false,\n        enablePinning: false,\n        type: \"string\",\n        cellTemplate: \"default\",\n        cellTooltip: '',\n        cellConditionalStyle: [],\n        cellActions: [],\n        classes: [],\n        conditionalClasses: []\n    },\n    {\n        name: \"Status\",\n        hide: false,\n        valueKey: 'status',\n        textAlign: \"left\",\n        enableSorting: true,\n        sortBy: \"none\",\n        enableFiltering: false,\n        enablePinning: false,\n        type: \"string\",\n        cellTemplate: \"default\",\n        cellTooltip: '',\n        cellConditionalStyle: [],\n        cellActions: [],\n        classes: [],\n        conditionalClasses: []\n    }\n]",
+                  "to": "columns"
+                }
+              ]
+            }
+          ],
+          "comments": ""
+        },
+        {
+          "name": "div",
+          "nodeName": "div",
+          "elementId": "",
+          "attributes": [
+            {
+              "property": "data-id",
+              "value": "hvBi8x"
+            }
+          ],
+          "classList": [],
+          "conditionalClasses": [],
+          "conditionalStyles": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": "",
+            "trackByIndex": false
+          },
+          "styles": [],
+          "layout": {
+            "cell": {
+              "type": "box-item",
+              "growFactor": 1,
+              "shrinkFactor": 1,
+              "mainSize": "100%"
+            }
+          },
+          "children": [
+            {
+              "name": "h1",
+              "nodeName": "h1",
+              "elementId": "",
+              "attributes": [
+                {
+                  "property": "data-id",
+                  "value": "ZrqBbF"
+                }
+              ],
+              "classList": [],
+              "conditionalClasses": [],
+              "conditionalStyles": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": "",
+                "trackByIndex": false
+              },
+              "styles": [
+                {
+                  "property": "text-align",
+                  "value": "center",
+                  "enabled": true
+                }
+              ],
+              "children": [
+                {
+                  "name": "text",
+                  "nodeName": "text",
+                  "textContent": "GraphQL API",
+                  "evaluate": false
+                }
+              ],
+              "comments": ""
+            },
+            {
+              "name": "span",
+              "nodeName": "span",
+              "elementId": "",
+              "attributes": [
+                {
+                  "property": "data-id",
+                  "value": "bMJl3g"
+                }
+              ],
+              "classList": [],
+              "conditionalClasses": [],
+              "conditionalStyles": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": "",
+                "trackByIndex": false
+              },
+              "styles": [],
+              "children": [
+                {
+                  "name": "text",
+                  "nodeName": "text",
+                  "textContent": "$ctrl.results",
+                  "evaluate": true
+                }
+              ],
+              "comments": ""
+            }
+          ],
+          "comments": ""
+        },
+        {
+          "name": "div",
+          "nodeName": "div",
+          "elementId": "",
+          "attributes": [
+            {
+              "property": "data-id",
+              "value": "McMRVR"
+            }
+          ],
+          "classList": [],
+          "conditionalClasses": [],
+          "conditionalStyles": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": "",
+            "trackByIndex": false
+          },
+          "styles": [],
+          "layout": {
+            "cell": {
+              "type": "box-item",
+              "growFactor": 1,
+              "shrinkFactor": 1,
+              "mainSize": "100%"
+            }
+          },
+          "children": [
+            {
+              "name": "h1",
+              "nodeName": "h1",
+              "elementId": "",
+              "attributes": [
+                {
+                  "property": "data-id",
+                  "value": "9Y2YE0"
+                }
+              ],
+              "classList": [],
+              "conditionalClasses": [],
+              "conditionalStyles": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": "",
+                "trackByIndex": false
+              },
+              "styles": [
+                {
+                  "property": "text-align",
+                  "value": "center",
+                  "enabled": true
+                }
+              ],
+              "children": [
+                {
+                  "name": "text",
+                  "nodeName": "text",
+                  "textContent": "Rest API",
+                  "evaluate": false
+                }
+              ],
+              "comments": ""
+            },
+            {
+              "name": "Table",
+              "nodeName": "bln-table",
+              "elementId": "",
+              "attributes": [
+                {
+                  "property": "core",
+                  "value": ""
+                },
+                {
+                  "property": "data-id",
+                  "value": "ngE8tj"
+                }
+              ],
+              "classList": [],
+              "conditionalClasses": [],
+              "conditionalStyles": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": "",
+                "trackByIndex": false
+              },
+              "styles": [],
+              "children": [],
+              "comments": "",
+              "type": "core-component",
+              "expressions": [
+                {
+                  "expression": "$ctrl.obj",
+                  "to": "data"
+                },
+                {
+                  "expression": "[{\n        name: \"Name\",\n        hide: false,\n        valueKey: 'name',\n        textAlign: \"left\",\n        enableSorting: true,\n        sortBy: \"none\",\n        enableFiltering: false,\n        enablePinning: false,\n        type: \"string\",\n        cellTemplate: \"default\",\n        cellTooltip: '',\n        cellConditionalStyle: [],\n        cellActions: [],\n        classes: [],\n        conditionalClasses: []\n    },\n    {\n        name: \"Data\",\n        hide: false,\n        valueKey: 'data',\n        textAlign: \"left\",\n        enableSorting: true,\n        sortBy: \"none\",\n        enableFiltering: false,\n        enablePinning: false,\n        type: \"object\",\n        cellTemplate: \"default\",\n        cellTooltip: '',\n        cellConditionalStyle: [],\n        cellActions: [],\n        classes: [],\n        conditionalClasses: []\n    }\n]",
+                  "to": "columns"
+                }
+              ]
+            }
+          ],
+          "comments": ""
+        }
+      ],
+      "comments": ""
+    }
+  ]
+}
